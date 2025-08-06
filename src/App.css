@@ -1,0 +1,463 @@
+:root {
+  font-family: "Pretendard-Light" "Pretendard-Regular" "Pretendard-Bold";
+  line-height: 1;
+
+  font-size: 10px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+p {
+  margin: 0px;
+  line-height: 1.5;
+}
+.weather-container {
+  color: #4b4b4b;
+  background-color: rgb(234, 234, 234);
+
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+
+  transition: background-color 0.5s ease;
+}
+.weather-container.dark {
+  color: #dddddd;
+  background-color: #232a30;
+}
+
+/* 전역 타이틀 */
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+
+  margin: 0px 0px 10px 0px;
+  align-self: flex-start;
+
+  transition: background-color 0.5s ease;
+}
+
+/* 사이드 바 */
+.sidebar {
+  flex: 3.5;
+  background-color: #ffffff80;
+
+  width: 660px;
+  box-sizing: border-box;
+
+  margin: 20px;
+  padding: 20px;
+
+  border-radius: 30px;
+
+  display: flex;
+
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  transition: background-color 0.5s ease;
+}
+.sidebar.dark {
+  background-color: #8d98a280;
+}
+
+/* 검색 바 */
+.search-row {
+  background-color: #ffffff80;
+
+  height: 54px;
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 4px 4px;
+  margin: 0px 0px 10px 0px;
+
+  display: flex;
+
+  gap: 10px;
+
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.search-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.city-input {
+  color: rgb(75, 75, 75);
+  background-color: transparent;
+
+  font-size: 2.2rem;
+  width: 100%;
+
+  border: none;
+  outline: none;
+}
+
+/* 지도 */
+.map-placeholder {
+  background: #f0f0f0;
+
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 메인 콘텐츠 */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 6.5;
+  padding: 10px 20px 20px 0px;
+  overflow-y: hidden;
+}
+
+/* 다크 모드 전환 스위치 of 메인 콘텐츠 */
+.toggle-container {
+  margin: 0px 0px 10px 0px;
+
+  gap: 5px;
+
+  display: flex;
+  align-self: flex-end;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+.mode-icon {
+  height: 20px;
+  width: 20px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  background-color: #eaeaea;
+  position: absolute;
+  cursor: pointer;
+
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 26px;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+input:checked + .slider {
+  background-color: #2196f3;
+}
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round::before {
+  border-radius: 50%;
+}
+
+/* 현재 날씨*/
+.current-weather {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 40px 10px 40px;
+  flex-direction: row;
+}
+/* 메인 텍스트*/
+.main-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.city-name {
+  font-size: 3.5rem;
+  font-weight: 500;
+}
+.temp {
+  line-height: 1;
+  font-size: 10rem;
+  margin: 0px 0px 0.6rem 0px;
+  font-weight: 600;
+}
+.humid {
+  font-size: 3rem;
+}
+.refresh-time-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.refresh-time {
+  font-size: 2rem;
+}
+.refresh-button {
+  width: 2.4rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* 키프레임 정의 */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.refresh-button.spinning img {
+  animation: spin 1s linear;
+}
+
+/* 현재 날씨 이미지*/
+.current-weather-image {
+  height: 25rem;
+  width: auto;
+}
+/* 시간별 예보*/
+.hourly-forecast {
+  display: flex;
+
+  background-color: #ffffff80;
+
+  box-sizing: border-box;
+
+  padding: 20px;
+  margin-bottom: 20px;
+
+  border-radius: 30px;
+
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  transition: background-color 0.5s ease;
+}
+.hourly-forecast.dark {
+  background-color: #8d98a280;
+}
+.hourly-forecast-list {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  align-self: center;
+}
+.hourly-forecast-child {
+  position: relative;
+  display: flex;
+  flex: 1;
+  height: 100%;
+  padding: 0 3rem 0 3rem;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-right: 2px solid #9a9a9a;
+}
+.hourly-forecast-child:last-child {
+  border-right: 0;
+}
+.hourly-forecast-image {
+  width: 12rem;
+}
+
+.bottom-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 20px; /* 원하는 간격 */
+}
+/* 3일 단기 예보 of 메인 콘텐츠 */
+.daily-forecast {
+  display: flex;
+  flex: 1;
+
+  background-color: #ffffff80;
+
+  box-sizing: border-box;
+
+  padding: 20px;
+
+  border-radius: 30px;
+
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  transition: background-color 0.5s ease;
+}
+.daily-forecast.dark {
+  background-color: #8d98a280;
+}
+.daily-forecast-list {
+  display: flex;
+  flex-direction: row;
+
+  flex: 1;
+
+  align-items: stretch;
+  justify-content: space-around;
+}
+.daily-forecast-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem 0 3rem;
+  border-right: 2px solid #9a9a9a;
+}
+.daily-forecast-child:last-child {
+  border-right: 0;
+}
+.daily-forecast-image {
+  width: 12rem;
+}
+
+.air-condition {
+  display: flex;
+  flex: 1;
+
+  background-color: #ffffff80;
+  border-radius: 30px;
+  padding: 20px;
+
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  transition: background-color 0.5s ease;
+}
+.air-condition.dark {
+  background-color: #8d98a280;
+}
+.air-quality-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.air-quality-item {
+  display: flex;
+  flex: 1;
+
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #9a9a9a;
+  padding: 0 2rem 1.5rem 2rem;
+}
+.air-quality-item:last-of-type {
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.air-label {
+  font-size: 2rem;
+  font-weight: 500;
+  flex-basis: 40%;
+}
+.air-grade {
+  font-weight: 700;
+  font-size: 3rem;
+  flex-basis: 20%;
+  text-align: center;
+}
+.air-value {
+  font-weight: 600;
+  flex-basis: 30%;
+  text-align: right;
+}
+.air-update-time {
+  font-size: 1.2rem;
+  color: #888;
+  margin-top: 1rem;
+  align-self: flex-end;
+}
+
+@font-face {
+  font-family: "Pretendard-Light";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff")
+    format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+}

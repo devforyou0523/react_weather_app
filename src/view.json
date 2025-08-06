@@ -1,0 +1,96 @@
+{
+  "geoResp": {
+    "results": [
+      {
+        "address_components": [
+          {
+            "long_name": "전주시",
+            "short_name": "전주시",
+            "types": ["locality", "political"]
+          },
+          {
+            "long_name": "전북특별자치도",
+            "short_name": "전북특별자치도",
+            "types": ["administrative_area_level_1", "political"]
+          },
+          {
+            "long_name": "대한민국",
+            "short_name": "KR",
+            "types": ["country", "political"]
+          }
+        ],
+        "formatted_address": "대한민국 전북특별자치도 전주시",
+        "geometry": {
+          "bounds": {
+            "northeast": { "lat": 35.9031072, "lng": 127.2342896 },
+            "southwest": { "lat": 35.7285742, "lng": 126.9979502 }
+          },
+          "location": { "lat": 35.8397174, "lng": 127.1293249 },
+          "location_type": "APPROXIMATE",
+          "viewport": {
+            "northeast": { "lat": 35.9031072, "lng": 127.2342896 },
+            "southwest": { "lat": 35.7285742, "lng": 126.9979502 }
+          }
+        },
+        "place_id": "ChIJY9gWA0MjcDURmkLDkeAXvMc",
+        "types": ["locality", "political"]
+      }
+    ],
+    "status": "OK"
+  },
+  "geoResp2": {
+    "results": [
+      {
+        "address_components": [
+          { "long_name": "567", "short_name": "567", "types": ["premise"] },
+          {
+            "long_name": "백제대로",
+            "short_name": "백제대로",
+            "types": ["political", "sublocality", "sublocality_level_4"]
+          },
+          {
+            "long_name": "덕진구",
+            "short_name": "덕진구",
+            "types": ["political", "sublocality", "sublocality_level_1"]
+          },
+          {
+            "long_name": "전주시",
+            "short_name": "전주시",
+            "types": ["locality", "political"]
+          },
+          {
+            "long_name": "전북특별자치도",
+            "short_name": "전북특별자치도",
+            "types": ["administrative_area_level_1", "political"]
+          },
+          {
+            "long_name": "대한민국",
+            "short_name": "KR",
+            "types": ["country", "political"]
+          },
+          {
+            "long_name": "54896",
+            "short_name": "54896",
+            "types": ["postal_code"]
+          }
+        ],
+        "formatted_address": "대한민국 전북특별자치도 전주시 덕진구 백제대로 567",
+        "geometry": {
+          "location": { "lat": 35.8468171, "lng": 127.1299221 },
+          "location_type": "ROOFTOP",
+          "viewport": {
+            "northeast": { "lat": 35.8481660802915, "lng": 127.1312710802915 },
+            "southwest": { "lat": 35.8454681197085, "lng": 127.1285731197085 }
+          }
+        },
+        "place_id": "ChIJuTsbYjQjcDUR4USIFe4O79I",
+        "plus_code": {
+          "compound_code": "R4WH+PX 대한민국 전북특별자치도 전주시",
+          "global_code": "8Q79R4WH+PX"
+        },
+        "types": ["establishment", "point_of_interest", "university"]
+      }
+    ],
+    "status": "OK"
+  }
+}
